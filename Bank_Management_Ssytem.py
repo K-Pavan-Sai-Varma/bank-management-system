@@ -89,7 +89,7 @@ def deposit_or_withdraw(accNo, action):
     cur.execute("SELECT deposit FROM accounts WHERE accNo=?", (accNo,))
     row = cur.fetchone()
     if not row:
-        print("⚠️ Account not found.")
+        print("Account not found.")
         conn.close()
         return
     balance = row[0]
@@ -105,7 +105,7 @@ def deposit_or_withdraw(accNo, action):
     cur.execute("UPDATE accounts SET deposit=? WHERE accNo=?", (balance, accNo))
     conn.commit()
     conn.close()
-    print(f"✅ {action.capitalize()} successful. New balance: ₹{balance}")
+    print(f"{action.capitalize()} successful. New balance: ₹{balance}")
 
 def modify_account(accNo):
     conn = sqlite3.connect('bank.db')
@@ -122,9 +122,9 @@ def modify_account(accNo):
         cur.execute("UPDATE accounts SET name=?, type=?, deposit=? WHERE accNo=?",
                     (name, acc_type, deposit, accNo))
         conn.commit()
-        print("✅ Account updated.")
+        print("Account updated.")
     else:
-        print("⚠️ Account not found.")
+        print("Account not found.")
     conn.close()
 
 def delete_account(accNo):
