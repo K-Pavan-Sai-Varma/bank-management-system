@@ -30,7 +30,7 @@ Default Password: admin123
 
 📂 Files
 
-[bank-management-system.py](): Main Python script
+[bank-management-system.py](https://github.com/K-Pavan-Sai-Varma/bank-management-system/blob/main/Bank_Management_Ssytem.py): Main Python script
 
 bank.db: SQLite database file (auto-created on first run)
 
