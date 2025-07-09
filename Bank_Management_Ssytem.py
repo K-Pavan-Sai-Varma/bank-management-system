@@ -47,9 +47,9 @@ def create_account():
         cur.execute("INSERT INTO accounts VALUES (?, ?, ?, ?)", (accNo, name, acc_type, deposit))
         cur.execute("INSERT INTO users VALUES (?, ?)", (accNo, password))
         conn.commit()
-        print("\n🎉 Account created successfully!")
+        print("\n Account created successfully!")
     except sqlite3.IntegrityError:
-        print("⚠️ Account number already exists.")
+        print(" Account number already exists.")
         accNo = None
 
     conn.close()
@@ -81,7 +81,7 @@ def show_balance(accNo):
     if row:
         print(f"Available balance: ₹{row[0]}")
     else:
-        print("⚠️ Account not found.")
+        print("!Account not found.")
 
 def deposit_or_withdraw(accNo, action):
     conn = sqlite3.connect('bank.db')
@@ -98,7 +98,7 @@ def deposit_or_withdraw(accNo, action):
         balance += amount
     elif action == "withdraw":
         if amount > balance:
-            print("❌ Insufficient funds.")
+            print("!! Insufficient funds.")
             conn.close()
             return
         balance -= amount
@@ -134,9 +134,9 @@ def delete_account(accNo):
     cur.execute("DELETE FROM users WHERE accNo=?", (accNo,))
     conn.commit()
     if cur.rowcount:
-        print("✅ Account deleted.")
+        print("Account deleted.")
     else:
-        print("⚠️ Account not found.")
+        print(" Account not found.")
     conn.close()
 
 def display_all_accounts():
@@ -184,10 +184,10 @@ def admin_menu():
         if choice == '1':
             display_all_accounts()
         elif choice == '2':
-            accNo=int(input("Enter account number to modify:"))
+            accNo=int(input("Enter account number to modify :"))
             modify_account(accNo)
         elif choice == '3':
-            accNo=int(input("Enter account number to delete"))
+            accNo=int(input("Enter account number to delete :"))
             delete_account(accNo)
             break
         elif choice =='4':
@@ -212,7 +212,7 @@ def main():
             if password == 'admin123':
                 admin_menu()
             else:
-                print("❌ Wrong password.")
+                print("Wrong password.")
         elif choice == '2':
             accNo = int(input("Enter your account number: "))
             password = input("Enter your password: ")
@@ -228,7 +228,7 @@ def main():
             if accNo:
                 user_menu(accNo)
         elif choice == '4':
-            print("👋 Thank you for using the Bank Management System.")
+            print("Thank you for using the Bank Management System.")
             break
         else:
             print("Invalid choice. Please try again.")
