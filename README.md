@@ -19,7 +19,7 @@ A simple terminal-based Python Bank Management System using SQLite.
 2. Make sure Python 3 is installed
 3. Run the project using:
    ```bash
-   [bank-management-system.py](https://github.com/K-Pavan-Sai-Varma/bank-management-system/blob/main/Bank_Management_Ssytem.py)
+   bank-management-system.py
 
 🔑 Admin Login
 
